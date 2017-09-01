@@ -1,0 +1,172 @@
+.box-contato {
+	.titulo {
+		color: $vermelho;
+	}
+
+	h2 {
+		img {
+			margin-top: 13px;
+		}
+	}
+
+	@media all and (max-width: 768px){
+		.col-6 {
+			width: 100%;
+			padding: 0;
+		}
+
+		form fieldset:last-child {
+			padding-bottom: 20px;
+		}
+
+		form button {
+			margin-top: 0px;
+		}
+	}
+}
+
+.box-localizacao {
+	.titulo {
+		color: $verde-claro;
+	}
+
+	h2 {
+		img {
+			margin-top: 2px;
+		}
+	}
+
+	iframe {
+		width: 100%;
+		height: 220px;
+	}
+
+	@media all and (max-width: 768px){
+		.col-5, .col-7 {
+			width: 100%;
+			padding: 0;
+		}
+
+		.col-5 {
+			margin-bottom: 40px;
+		}
+	}
+
+	@media all and (max-width: 500px){
+		.col-5, .col-7 {
+			text-align: center;
+		}
+	}
+}
+
+
+.footer {
+	height: 80px;
+	background-color: $verde-claro;
+	width: 100%;
+	overflow: hidden;
+
+	.copy {
+		float: left;
+		color: #ffffff;
+		font-size: 1.4rem;
+		line-height: 80px;
+
+		@media all and (max-width: 950px){
+			font-size: 1.1rem;
+		}
+	}
+
+	.redes {
+		display: block;
+		margin: 12px 0 0;
+		text-align: center;
+
+		a {
+			display: inline-block;
+			@include animacao;
+
+			&:hover {
+				opacity: .5;
+			}
+		}
+
+		@media all and (max-width: 950px){
+			margin-top: 17px;
+
+			img {
+				max-width: 45px;
+			}
+		}
+	}
+
+	.di20 {
+		float: right;
+		@include animacao;
+
+		img {
+			position: relative;
+			top: 20px;
+		}
+
+		&:hover {
+			opacity: .5;
+		}
+	}
+
+	@media all and (max-width: 950px){
+		.col-5, .col-2 {
+			padding: 0;
+		}
+	}
+
+	@media all and (max-width: 765px){
+		height: auto;
+		text-align: center;
+		padding: 20px;
+
+		.copy { 
+			display: block;
+			width: 100%;
+			line-height: 2rem;
+		}
+
+		.redes {
+			margin-top: 10px;
+		}
+
+		.di20 {
+			float: none;
+
+			img {
+				top: 5px;
+			}
+		}
+
+		.col-5, .col-2 {
+			width: 100%;
+		}
+	}
+
+	@media all and (max-width: 400px){
+		height: auto;
+		padding: 20px 0;
+
+		.copy, .di20 {
+			display: block;
+			float: none;
+			text-align: center;
+			line-height: 25px;
+		}
+	}
+}
+
+.page-id-43 {
+	.nav {
+		.contato {
+			a {
+				color: $vermelho;
+			}
+		}
+	}
+}

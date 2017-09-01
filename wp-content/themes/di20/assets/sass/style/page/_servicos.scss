@@ -1,0 +1,53 @@
+.list-servicos {
+	@include clear;
+	padding: 0;
+
+	.item {
+		width: 50%;
+		float: left;
+		height: 41vh;
+		display: table;
+		@include animacao;
+
+		.content-item {
+			display: table-cell;
+			vertical-align: middle;
+			@include animacao;
+
+			h3, p {
+				display: block;
+				width: 70%;
+				color: #ffffff;
+				text-align: center;
+				margin-right: auto;
+				margin-left: auto;
+				text-shadow: 1px 1px 1px #000;
+			}
+
+			h3 {
+				text-transform: uppercase;
+				margin-bottom: 15px;
+			}
+
+			p {
+				font-size: 1rem;
+			}
+
+			a {
+				text-shadow: 1px 1px 1px #000;
+			}
+		}
+
+		&:hover {
+			.content-item {
+				background-color: rgba($azul, .3);
+			}
+
+			.contratar {
+				border-color: $pink;
+				color: $pink;
+				text-shadow: none;
+			}	
+		}
+	}
+}
