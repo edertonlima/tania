@@ -30,7 +30,7 @@ add_action( 'admin_menu' , 'remove_post_custom_fields' );
 
 // Remove tags
 function myprefix_unregister_tags() {
-    unregister_taxonomy_for_object_type('post_tag', 'post');
+    //unregister_taxonomy_for_object_type('post_tag', 'post');
 }
 add_action('init', 'myprefix_unregister_tags');
 
@@ -239,8 +239,46 @@ function type_post_servicos() {
 	flush_rewrite_rules();
 }
 
+// depoimentos
+add_action( 'init', 'depoimento' );
+function depoimento() {
+	$singular = 'Depoimento';
+	$plural = 'Depoimentos';
+	$singular_min = 'depoimento';
+	$plural_min = 'depoimentos';
 
+	$labels = array(
+		'name' => _x($plural, 'post type general name'),
+		'singular_name' => _x($singular, 'post type singular name'),
+		'add_new' => _x('Adicionar novo '.$singular, 'Produto'),
+		'add_new_item' => __('Addicionar novo '.$singular),
+		'edit_item' => __('Editar '.$singular),
+		'new_item' => __('Novo '.$singular),
+		'all_items' => __('Todos as '.$plural),
+		'view_item' => __('Visualizar '.$singular),
+		'search_items' => __('Procurar '.$singular),
+		'not_found' =>  __('Nenhum '.$singular_min.' Encontrado.'),
+		'not_found_in_trash' => __('Nenhum '.$singular_min.' encontrado na lixeira.'),
+		'parent_item_colon' => '',
+		'menu_name' => $plural
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'menu_position' => null,
+		'menu_icon' => 'dashicons-tag',
+		'supports' => array('title','excerpt','thumbnail')
+	  );
 
+	register_post_type( $plural_min, $args );
+}
 
 /*
 

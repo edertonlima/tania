@@ -1,0 +1,9 @@
+.box-pergunta {
+	h2 {
+		margin-top: 40px;
+
+		&:first-child {
+			margin-top: 0px;
+		}
+	}
+}

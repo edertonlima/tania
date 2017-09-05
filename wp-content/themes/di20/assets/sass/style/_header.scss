@@ -58,3 +58,35 @@
 		}
 	}
 }
+
+.icon-top {
+	float: right;
+
+	.item {
+		display: inline-block;
+
+		&:first-child {
+			margin-right: 40px;
+		}
+	}
+
+	a {
+		@include animacao();
+		&:hover {
+			opacity: .5;
+		}
+	}
+
+	span {
+		font-size: 1rem;
+		color: #ffffff;
+		font-family: $font-family-tit;
+		line-height: 41px;
+		display: inline-block;
+	}
+
+	img {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+}

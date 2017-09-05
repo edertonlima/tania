@@ -1,6 +1,6 @@
 .nav {
 	width: 100%;
-	margin-top: 40px;
+	margin-top: 37px;
 	float: right;
 	@include clear;
 
@@ -9,6 +9,7 @@
 
 		li {
 			display: inline-block;
+			padding: 0 15px;
 
 			a, span {
 				display: block;
@@ -16,16 +17,16 @@
 				color: $cor-txt;
 				font-family: $font-family-tit;
 				font-weight: $bold;
-				padding: 0 15px;
 				color: #ffffff;
 			}
 
 			a {
 				text-decoration: none;	
-				@include animacao();
+				padding: 3px 2px 0;
+				border-top: 3px solid transparent;
 
-				&:hover {
-					opacity: .5;
+				&:hover, &.active {
+					border-color: #ffffff;
 				}
 			}
 		}

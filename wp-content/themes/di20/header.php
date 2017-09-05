@@ -163,15 +163,15 @@
 					<nav class="nav">
 						<ul class="menu-principal">
 							
-							<li class="quem-somos">
+							<li class="quem-sou-eu">
 								<a href="<?php echo get_permalink(get_page_by_path('quem-sou-eu')); ?>" title="Quem sou eu">Quem sou eu</a>
 							</li>
 
-							<li class="quem-somos">
+							<li class="pergunta-para-tania">
 								<a href="<?php echo get_permalink(get_page_by_path('pergunta-para-tania')); ?>" title="Pergunta para Tânia">Pergunta para Tânia</a>
 							</li>
 
-							<li class="casas">
+							<li class="blog">
 								<a href="<?php echo get_home_url(); ?>/blog" title="Blog">Blog</a>
 							</li>
 

@@ -14,7 +14,19 @@
 						if(get_sub_field('imagem')){
 							$slide = $slide+1; ?>
 
-							<div class="item <?php if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php the_sub_field('imagem'); ?>');"></div>
+							<div class="item slide-home active <?php if($slide == 1){ echo 'on-active'; } ?>" style="background-image: url('<?php the_sub_field('imagem'); ?>');">
+								<?php if(get_sub_field('titulo')){ ?>
+									<span class="titulo">
+										<?php the_sub_field('titulo'); ?>
+									</span>
+								<?php } ?>
+
+								<?php if(get_sub_field('subtitulo')){ ?>
+									<span class="subtitulo">
+										<?php the_sub_field('subtitulo'); ?>
+									</span>
+								<?php } ?>
+							</div>
 
 						<?php }
 
@@ -23,51 +35,67 @@
 
 			</div>
 
-			<?php if($slide > 2){ ?>
-				<ol class="carousel-indicators">
-					
-					<?php for($i=0; $i<$slide; $i++){ ?>
+			
+			<ol class="carousel-indicators">
+				<?php if($slide > 1){
+					for($i=0; $i<$slide; $i++){ ?>
 						<li data-target="#slide" data-slide-to="<?php echo $i; ?>" class="<?php if($i == 0){ echo 'active'; } ?>"></li>
-					<?php } ?>
-					
-				</ol>
-			<?php } ?>
-
+					<?php }
+				} ?>
+			</ol>
+			
 		</div>
 	</div>
 </section>
 
-<section class="box-content box-quem-somos">
+<section class="box-content">
 	<div class="container">
 
-		<h2>
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico_quem-somos.png" alt="<?php the_field('titulo') ?>">
-			<div class="cont-h2">
-				<span class="titulo"><?php the_field('titulo') ?></span>
-				<span class="subtitulo"><?php the_field('subtitulo') ?></span>
-			</div>
-		</h2>
-
-		<article class="content">
-			<?php the_field('texto') ?>
+		<article class="content">		
+			<h2><?php the_title() ?></h2>
+			<div class="cont-txt"><?php the_field('texto') ?></div>
 		</article>
 
-		<?php if( have_rows('bloco') ): ?>
-			<article class="content">
+	</div>
+</section>
 
-				<?php while ( have_rows('bloco') ) : the_row(); ?>
+<section class="box-content box-ajuda">
+	<div class="container">
 
-					<div class="bloco">
-						<span class="titulo"><?php the_sub_field('titulo'); ?></span>
-						<span class="texto"><?php the_sub_field('texto'); ?></span>
+		<article class="content">			
+			<div class="row">
+				<div class="col-6">
+					<h2><?php the_field('titulo_ajuda') ?></h2>
+
+					<div class="cont-txt">
+						<?php the_field('texto_ajuda') ?>
 					</div>
+				</div>
 
-				<?php endwhile; ?>
-				
-			</article>
-		<?php endif; ?>
+				<div class="col-6">
+					<a href="<?php the_field('url_ajuda',$page->ID) ?>" class="button ajuda" title="<?php the_field('tit_url_ajuda',$page->ID) ?>"><?php the_field('tit_url_ajuda') ?></a>
+				</div>
+			</div>
+		</article>
 
 	</div>
 </section>
 
 <?php get_footer(); ?>
+
+<script type="text/javascript">
+	jQuery.noConflict();
+	jQuery('document').ready(function(){
+		jQuery('.slide-home').each(function(){
+			margem = (jQuery('.titulo', this).height())/1.5;
+			jQuery('.titulo', this).css('margin-bottom',('-'+margem+'px'));
+			jQuery('.subtitulo', this).css('margin-top',((margem+10)+'px'));
+		});
+
+		jQuery('.active').removeClass('active');
+		jQuery('.on-active').addClass('active');
+		jQuery('.carousel-indicators li[data-slide-to=0]').addClass('active');
+
+		jQuery('.quem-sou-eu a').addClass('active');
+	});	
+</script>

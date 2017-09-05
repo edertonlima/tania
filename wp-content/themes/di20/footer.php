@@ -1,4 +1,39 @@
-	<section class="box-content box-contato">
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-3">
+				<a href="<?php echo get_home_url(); ?>" title="<?php the_field('titulo','option'); ?>">
+					<img src="<?php the_field('logo_header','option'); ?>" alt="<?php the_field('titulo','option'); ?>" class="logo-footer">
+				</a>
+			</div>
+
+			<div class="col-6">
+				<div class="copy">Copyright <?php echo date('Y'); ?> - Todos os direitos reservados</div>
+			</div>
+
+			<div class="col-3">
+				<?php if( have_rows('redes_sociais','option') ): ?>
+					<div class="redes">						
+						<?php while ( have_rows('redes_sociais','option') ) : the_row(); ?>
+
+							<a href="<?php the_sub_field('url','option'); ?>" title="<?php the_sub_field('nome','option'); ?>" target="_blank">
+								<img src="<?php the_sub_field('icone','option'); ?>" alt="<?php the_field('nome', 'option'); ?>">
+							</a>
+						<?php endwhile; ?>
+					</div>
+				<?php endif; ?>
+			</div>
+
+			<div class="col-5" style="display: none;">
+				<a href="http://www.di20.com.br" class="di20" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo_di20.png" alt="di20 DESENV." /></a>
+			</div>
+			
+		</div>
+	</div>
+</footer>
+
+<?php /*	<section class="box-content box-contato">
 		<div class="container">
 			
 			<?php $page = get_page_by_path('contato'); ?>
@@ -156,4 +191,4 @@
 		});
 
 	});
-</script>
+</script>*/ ?>

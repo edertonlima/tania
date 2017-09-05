@@ -100,6 +100,11 @@ body * {
 		}
 	}
 
+	&.box-depoimentos {
+		background-color: #EAE9E9;
+		padding: 30px 0;
+	}
+
 	&.box-msg-contato {
 		padding: 20px 0;
 		background-color: $azul;
@@ -107,6 +112,14 @@ body * {
 
 	&.box-servicos {
 		padding: 0;
+	}
+
+	&.box-blog {
+		padding: 30px 0;
+	}
+
+	&.box-contato {
+		padding: 20px 0 30px;
 	}
 
 	.link_page_ancora {

@@ -1,0 +1,41 @@
+.page-id-11 {
+	.box-contato {
+		margin-top: 135px;
+		float: left;
+		padding: 80px 0;
+
+		button.enviar {
+			background-color: $pink;
+			font-size: 1.225rem;
+
+			&:hover {
+				background-color: darken($pink, 10%);
+			}
+		}
+
+		.icon-top {
+			float: left;
+			width: 100%;
+
+			.item {
+				margin: 5px 0 0;
+				display: block;
+
+				&:first-child {
+					margin-top: 30px;
+				}
+			}
+
+			span {
+				font-size: 1.125rem;
+				line-height: 50px;
+				color: $pink;
+				margin-left: 5px;
+
+				&.email {
+					line-height: 41px;
+				}
+			}
+		}
+	}
+}
