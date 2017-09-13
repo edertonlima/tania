@@ -104,9 +104,11 @@
 			if(jQuery(this).hasClass('active')){
 				jQuery('.nav').css('top','-100vh');
 				jQuery(this).removeClass('active');
+				jQuery('.icon-top').removeClass('active');
 			}else{
 				jQuery('.nav').css('top','0px');
 				jQuery(this).addClass('active');
+				jQuery('.icon-top').addClass('active');
 			}
 		});
 
@@ -119,6 +121,7 @@
 
 	jQuery(window).resize(function(){
 		jQuery('.menu-mobile').removeClass('active');
+		jQuery('.icon-top').removeClass('active');
 		jQuery('.nav').css('top','-100vh');
 		if(jQuery('body').height() <= jQuery(window).height()){
 			jQuery('.footer').css({position: 'absolute', bottom: '0px'});
@@ -157,8 +160,6 @@
 							</span>
 						<?php } ?>
 					</div>
-					
-					<a href="javascript:" class="menu-mobile"><span><em>X</em></span></a>
 
 					<nav class="nav">
 						<ul class="menu-principal">
@@ -180,6 +181,8 @@
 							</li>
 						</ul>
 					</nav>
+
+					<a href="javascript:" class="menu-mobile"><span><em>X</em></span></a>
 
 				</div>
 			</div>

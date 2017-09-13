@@ -3,6 +3,7 @@
 	$nome = $_GET['nome'];
 	$email = $_GET['email'];
 	$telefone = $_GET['telefone'];
+	$assunto = $_GET['assunto'];
 	$mensagem = $_GET['mensagem'];
 
 	$nome_site = $_GET['nome_site'];
@@ -22,7 +23,8 @@
 	<p>Confira logo abaixo, todos os dados preenchidos no formulário da área "Contato":</p>';
 
 	$conteudo .= '<p>';
-	$conteudo .= '<strong>Nome:</strong> '.$nome;
+	$conteudo .= '<br><strong>Assunto:</strong> '.$assunto;
+	$conteudo .= '<br><strong>Nome:</strong> '.$nome;
 	$conteudo .= '<br><strong>E-mail:</strong> '.$email;
 	$conteudo .= '<br><strong>Telefone:</strong> '.$telefone;
 	$conteudo .= '<br><strong>Mensagem:</strong> '.$mensagem;

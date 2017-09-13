@@ -125,6 +125,7 @@
 	</div>
 </section>
 
+<?php /*
 <section class="box-content box-servicos list-servicos">
 	<?php
 		query_posts(
@@ -141,6 +142,47 @@
 		endwhile;
 		wp_reset_query();
 	?>
+</section>
+*/ ?>
+
+<section class="box-content box-blog">
+	<div class="container">
+
+		<div class="list-blog">
+			<?php
+				query_posts(
+					array(
+						'posts_per_page' => 4,
+						'post_type' => 'servicos'
+					)
+				);
+
+				$item = 1;
+
+				while ( have_posts() ) : the_post();
+
+					if($wp_query->post_count == 1){
+						get_template_part( 'content-list-servico-1' );
+					}else{
+						if($wp_query->post_count == 2){
+							get_template_part( 'content-list-servico' );
+						}else{
+							if(($item == 1) or (($item == $wp_query->post_count) and ($wp_query->post_count%3))){
+								get_template_part( 'content-list-servico-1' );
+							}else{
+								get_template_part( 'content-list-servico' );
+							}
+						}
+					}
+
+					$item = $item+1;
+
+				endwhile;
+				wp_reset_query();
+			?>
+		</div>
+
+	</div>
 </section>
 
 <section class="box-content box-depoimentos">
@@ -183,17 +225,17 @@
 					)
 				);
 
-				$item_blog = 1;
+				$item = 1;
 
 				while ( have_posts() ) : the_post();
 					
-					if($item_blog == 1){
+					if($item == 1){
 						get_template_part( 'content-list-1' );
 					}else{
 						get_template_part( 'content-list' );
 					}
 
-					$item_blog = $item_blog+1;
+					$item = $item+1;
 
 				endwhile;
 				wp_reset_query();
@@ -259,6 +301,36 @@
 		jQuery('.active').removeClass('active');
 		jQuery('.on-active').addClass('active');
 		jQuery('.carousel-indicators li[data-slide-to=0]').addClass('active');
+
+		jQuery(".enviar").click(function(){
+			jQuery('.enviar').html('ENVIANDO').prop( "disabled", true );
+			jQuery('.msg-form').html('');
+			var nome = jQuery('#nome').val();
+			var email = jQuery('#email').val();
+			var telefone = jQuery('#telefone').val();
+			var assunto = jQuery('#assunto').val();
+			var mensagem = jQuery('#mensagem').val();
+			var para = '<?php the_field('email', 'option'); ?>';
+			var nome_site = '<?php the_field('titulo', 'option'); ?>';
+
+			if((nome!='') && (email!='') && (telefone!='')){
+				jQuery.getJSON("<?php echo get_template_directory_uri(); ?>/mail.php", { nome:nome, email:email, telefone:telefone, assunto:assunto, mensagem:mensagem, para:para, nome_site:nome_site }, function(result){		
+					if(result=='ok'){
+						resultado = 'Enviado com sucesso! Obrigado.';
+						classe = 'ok';
+					}else{
+						resultado = result;
+						classe = 'erro';
+					}
+					jQuery('.msg-form').addClass(classe).html(resultado);
+					jQuery('form#form-contato').trigger("reset");
+					jQuery('.enviar').html('ENVIAR').prop( "disabled", false );
+				});
+			}else{
+				jQuery('.msg-form').html('Por favor, todos os campos precisam ser preenchidos.');
+				jQuery('.enviar').html('ENVIAR').prop( "disabled", false );
+			}
+		});
 	});	
 </script>
 

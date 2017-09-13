@@ -126,6 +126,11 @@ a.button {
 			background-color: #ffffff;
 			color: $azul;
 		}
+
+		@media all and (max-width: 400px){
+			width: 270px;
+			padding: 10px 40px;
+		}
 	}
 
 	&.contratar {

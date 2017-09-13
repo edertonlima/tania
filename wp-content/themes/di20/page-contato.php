@@ -73,5 +73,35 @@
 	jQuery.noConflict();
 	jQuery('document').ready(function(){
 		jQuery('.contato a').addClass('active');
+
+		jQuery(".enviar").click(function(){
+			jQuery('.enviar').html('ENVIANDO').prop( "disabled", true );
+			jQuery('.msg-form').html('');
+			var nome = jQuery('#nome').val();
+			var email = jQuery('#email').val();
+			var telefone = jQuery('#telefone').val();
+			var assunto = jQuery('#assunto').val();
+			var mensagem = jQuery('#mensagem').val();
+			var para = '<?php the_field('email', 'option'); ?>';
+			var nome_site = '<?php the_field('titulo', 'option'); ?>';
+
+			if((nome!='') && (email!='') && (telefone!='')){
+				jQuery.getJSON("<?php echo get_template_directory_uri(); ?>/mail.php", { nome:nome, email:email, telefone:telefone, assunto:assunto, mensagem:mensagem, para:para, nome_site:nome_site }, function(result){		
+					if(result=='ok'){
+						resultado = 'Enviado com sucesso! Obrigado.';
+						classe = 'ok';
+					}else{
+						resultado = result;
+						classe = 'erro';
+					}
+					jQuery('.msg-form').addClass(classe).html(resultado);
+					jQuery('form#form-contato').trigger("reset");
+					jQuery('.enviar').html('ENVIAR').prop( "disabled", false );
+				});
+			}else{
+				jQuery('.msg-form').html('Por favor, todos os campos precisam ser preenchidos.');
+				jQuery('.enviar').html('ENVIAR').prop( "disabled", false );
+			}
+		});
 	});	
 </script>

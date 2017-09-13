@@ -32,6 +32,25 @@
 			color: $pink;
 		}
 	}
+
+	@media all and (max-width: 750px){
+		h2 {
+			text-align: center;
+			&:after {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		.slide-depoimento {
+			padding: 0px 50px;
+
+			p {
+				font-size: .8rem;
+				line-height: 1.2rem;
+			}
+		}
+	}
 }
 
 .box-contato {

@@ -52,50 +52,27 @@
 		}
 	}
 
-/*
-	@media all and (max-width: 950px){
-		.col-5, .col-2 {
-			padding: 0;
-		}
-	}
-
-	@media all and (max-width: 765px){
+	@media all and (max-width: 750px){
 		height: auto;
-		text-align: center;
-		padding: 20px;
+		padding: 40px 0;
 
-		.copy { 
-			display: block;
+		.row [class*="col-"] {
 			width: 100%;
-			line-height: 2rem;
+		}
+
+		.logo-footer {
+			display: block;
+			margin: 0 auto;
+		}
+
+		.copy {
+			line-height: normal;
+			margin: 20px 0;
 		}
 
 		.redes {
-			margin-top: 10px;
-		}
-
-		.di20 {
-			float: none;
-
-			img {
-				top: 5px;
-			}
-		}
-
-		.col-5, .col-2 {
-			width: 100%;
+			margin: 0;
+			text-align: center;
 		}
 	}
-
-	@media all and (max-width: 400px){
-		height: auto;
-		padding: 20px 0;
-
-		.copy, .di20 {
-			display: block;
-			float: none;
-			text-align: center;
-			line-height: 25px;
-		}
-	}*/
 }

@@ -9,12 +9,13 @@
 
 		span {
 			position: absolute;
-			left: 20%;
 			font-family: $font-family-tit;
 			color: #ffffff;
 			font-weight: $bold;
 
 			&.titulo {
+				left: 20%;
+				max-width: 80%;
 				bottom: 50%;
 				font-size: 1.8rem;
 				line-height: 2rem;
@@ -22,6 +23,7 @@
 			}
 
 			&.subtitulo {
+				max-width: 75%;
 				left: 25%;
 				top: 50%;
 				font-size: 1.25rem;
@@ -84,6 +86,32 @@
 			}
 		}
 	}
+
+	@media all and (max-width: 500px){
+		height: $hSlide+10;
+
+		.item {
+			height: $hSlide+10;
+
+			span {
+				&.titulo {
+					max-width: 90%;
+					left: 10%;
+					font-size: 1.25rem;
+					line-height: 1.5rem;
+					text-shadow: 1px 1px 1px #000;
+				}
+
+				&.subtitulo {
+					max-width: 85%;
+					left: 15%;
+					top: 50%;
+					font-size: 1rem;
+					text-shadow: 1px 1px 1px #000;
+				}
+			}
+		}
+	}
 }
 
 .slide-carousel {
@@ -141,6 +169,11 @@
 		.owl-next  {
 			background: url('../images/seta_dir.png') no-repeat;
 			right: 0px;
+		}
+
+		@media all and (max-width: 400px){
+			top: 50%;
+			margin-top: -60px;
 		}
 	}
 }

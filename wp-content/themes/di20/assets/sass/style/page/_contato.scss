@@ -24,6 +24,10 @@
 				&:first-child {
 					margin-top: 30px;
 				}
+
+				@media all and (max-width: 750px){
+					text-align: center;
+				}
 			}
 
 			span {
@@ -34,6 +38,13 @@
 
 				&.email {
 					line-height: 41px;
+				}
+
+				@media all and (max-width: 750px){
+					img {
+						margin: 0;
+						display: inline-block;
+					}
 				}
 			}
 		}

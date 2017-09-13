@@ -6,6 +6,7 @@
 		width: 50%;
 		height: 41vh;
 		float: left;
+		margin-bottom: 10px;
 		@include box-sizing;
 		@include animacao;
 
@@ -75,15 +76,23 @@
 
 		&.first-item {
 			width: 100%;
-			margin-bottom: 10px;
 		}
 
-		&:nth-child(2){
+		&:not(.first-item) {
 			padding-right: 5px;
-		}
-
-		&:nth-child(3){
 			padding-left: 5px;
+		}
+	}
+
+	@media all and (max-width: 750px){
+		.item, .item:not(.first-item) {
+			width: 100%;
+			max-width: 460px;
+			float: none;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			padding: 0;
 		}
 	}
 }
@@ -107,6 +116,15 @@
 			position: absolute;
 			left: -65px;
 			top: 31px;
+		}
+
+		@media all and (max-width: 750px){
+			width: 100%;
+			left: 0;
+			
+			img {
+				display: none;
+			}
 		}
 	}
 
