@@ -158,6 +158,22 @@
 				color: #000000;
 				text-transform: uppercase;
 				font-size: .8rem;
+
+				a {
+					padding: 0 3px;
+
+					&:first-child {
+						padding-left: 0px;
+					}
+
+					&:last-child {
+						padding-right: 0px;
+					}
+
+					&:hover {
+						color: $pink;
+					}
+				}
 			}
 
 			p {
@@ -192,6 +208,46 @@
 
 			.content-item {
 				background-color: transparent;
+			}
+		}
+	}
+
+	.list-blog .row {
+		.col-4:nth-child(3n+4) {
+			@include clear;
+		}
+
+		@media all and (max-width: 950px){
+			.col-4:nth-child(3n+4) {
+				clear: none;
+			}
+
+			.col-4:nth-child(2n+3) {
+				clear: both;
+			}
+
+			text-align: center;
+
+			[class*="col-"] {
+				width: 49%;
+				float: none;
+				display: inline-block;
+				vertical-align: top;
+
+				.content-item {
+					text-align: left;
+				}
+			}
+		}
+
+		@media all and (max-width: 750px){
+			[class*="col-"] {
+				clear: both;
+				width: 100%;
+
+				.content-item {
+					text-align: left;
+				}
 			}
 		}
 	}

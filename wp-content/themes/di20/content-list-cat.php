@@ -10,9 +10,11 @@
 			<?php
 				$posttags = get_the_tags();
 				if ($posttags) {
-					foreach($posttags as $tag) {
-						echo '#'.strtoupper($tag->name).'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-					}
+					foreach($posttags as $tag) { //var_dump($tag); ?>
+						<a href="<?php echo get_tag_link($tag->term_id); ?>">
+							#<?php echo strtoupper($tag->name); ?>
+						</a>
+					<?php }
 				}
 			?>
 		</span>
